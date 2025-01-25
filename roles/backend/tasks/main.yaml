@@ -16,6 +16,8 @@
   ansible.builtin.user:
     name: expense
 - name: include from common role
+  tags:
+    - deployment
   include_role:
    name: common
    tasks_from: main
@@ -38,6 +40,8 @@
 #     remote_src: yes
 
 - name: insatll dependencies 
+  tags:
+    - deployment
   community.general.npm:
     path: /app
 
@@ -64,6 +68,8 @@
     target: /app/schema/backend.sql
 
 - name: reloading the daemon and restarting the service
+  tags:
+    - deployment
   ansible.builtin.systemd_service:
     enabled: true
     state: restarted
