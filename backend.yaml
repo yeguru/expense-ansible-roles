@@ -1,4 +1,4 @@
-- name: configuring MySQL server
+- name: configuring backend server
   hosts: backend
   become: yes
   roles:
