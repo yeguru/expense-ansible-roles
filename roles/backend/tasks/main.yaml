@@ -37,8 +37,8 @@
     path: /app
 
 - name: copy the backend service file to the mentioned path in the destination
-  ansible.builtin.copy:
-    src: backend.service
+  ansible.builtin.template: #It will search in templates folder
+    src: backend.service.j2
     dest: /etc/systemd/system/backend.service
 
 - name: installing the required libs to phython as PyMySQL and cryptography 
